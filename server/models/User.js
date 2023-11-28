@@ -22,7 +22,16 @@ const userSchema = new Schema({
     profilePic: {
         type: String,
         default: ""
+    },
+    followers: {
+        type: [String],
+        default: []
+    },
+    following: {
+        type: [String],
+        default: []
     }
+    
     
 })
 

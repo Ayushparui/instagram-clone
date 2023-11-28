@@ -67,7 +67,9 @@ router.post('/register', async (req, res) => {
             name,
             email,
             password: hashedPassword,
-            profilePic
+            profilePic,
+            followers: [],
+            following: []
         })
         await newUser.save();
         res.status(200).json({ msg: "User registered successfully" })

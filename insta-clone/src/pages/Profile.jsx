@@ -36,6 +36,8 @@ function Profile() {
         <div>
             <h1>Name: {userData.name}</h1>
             <h2>Email: {userData.email}</h2>
+            <p>Followers: {userData.followers.length}</p>
+            <p>Followings: {userData.following.length}</p>
             <img src={userData.profilePic} alt="Profile Picture" className='h-48 w-48' />
         </div>
     )
