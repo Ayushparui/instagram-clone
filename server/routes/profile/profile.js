@@ -49,5 +49,15 @@ router.get('/user/:id', async (req, res) => {
 })
 
 
+router.get('/allusers', async (req, res) => {
+    try {
+        const users = await User.find();
+        res.json({ users }).status(200);
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+
 
 module.exports = router;

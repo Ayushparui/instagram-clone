@@ -5,6 +5,7 @@ import Layout from './component/Layout';
 import Insta from './pages/Insta';
 import Profile from './pages/Profile';
 import Posts from './pages/Posts'
+import AUsers from './pages/AUsers';
 import Missing from './component/Missing'
 import RequiredAuth from './component/RequiredAuth';
 import Register from './component/Register'
@@ -29,6 +30,7 @@ function App() {
             <Route path='instagram' element={<Insta />} />
             <Route path='profile/:id' element={<Profile />} />
             <Route path='posts' element={<Posts />} />
+            <Route path='users' element={<AUsers />} />
           </Route>
         </Route>
 

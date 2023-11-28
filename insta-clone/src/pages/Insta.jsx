@@ -80,7 +80,7 @@ function Insta() {
                         </li>
                     </ul>
                 </div>
-                <div className="mt-6 ml-[60px]">
+                <div className="mb-8 ml-[60px]">
                     <button className="bg-sky-500 hover:bg-sky-700 w-24 rounded-xl" onClick={handelClick}>Logout</button>
                 </div>
             </section>
@@ -89,8 +89,13 @@ function Insta() {
                     <div>
                         <h1>Instagram</h1>
                     </div>
+
+                    <div className="ml-4">
+                        <Link to={'/users'}>Users</Link>
+                    </div>
+
                     <div>
-                    <button className="bg-sky-500 hover:bg-sky-700 w-24 h-8 ml-[850px] rounded-xl" onClick={handleModalOpen}>+ New Post</button>
+                    <button className="bg-sky-500 hover:bg-sky-700 w-24 h-8 ml-[800px] rounded-xl" onClick={handleModalOpen}>+ New Post</button>
                         {showModal && (
                             <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
                                 <div className="bg-white p-8 rounded-xl">
@@ -100,6 +105,7 @@ function Insta() {
                             </div>
                         )}
                     </div>
+
                 </header>
 
             </section>

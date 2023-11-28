@@ -16,7 +16,7 @@ function Register() {
         name: "",
         email: "",
         password: "",
-        profilePic: ""
+        
     })
 
     useEffect(() => {
@@ -37,23 +37,24 @@ function Register() {
             const imageId = imageUrl.data.responseData.url;
             console.log(imageId)
             console.log('Before setData:', data);
-            setData((prevData) => ({
-                ...prevData,
-                profilePic: imageId,
-            }));
-          
             
+
             console.log('After setData:', data);
-            const imageDetails = await uploadImageDetails(data);
 
+           
+            
+         
 
-            console.log(imageDetails)
+            const uploadtodb = await uploadImageDetails(data.name, data.email, data.password, imageId);
+            console.log(uploadtodb)
 
+        
             // Use imageUrl or perform other actions after successful upload
 
             setLoading(false);
 
             // Clear input and preview after successful upload
+
             setPreviewSource('');
             setFileInputState('');
 
@@ -82,8 +83,9 @@ function Register() {
         }
     }
 
-    const uploadImageDetails = async (data) => {
+    const uploadImageDetails = async (name, email, password, profilePic) => {
         try {
+            const data = { name, email, password, profilePic }
             console.log("Upload imge dett",data)
             const register = await axios.post(`${config.SERVER_URL}/auth/register`, data, {
                 headers: { 'Content-Type': 'application/json'}
