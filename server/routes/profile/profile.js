@@ -135,6 +135,44 @@ router.post('/checkFollow', async (req, res) => {
 });
 
 
+router.get('/foluserposts', async (req, res) => {
+    try{
+        const userId = req.query.userId;
+        const user = await User.findById(userId);
+        const postsByFollwingUsers = user.following
+        res.json({ postsByFollwingUsers }).status(200);
+
+    }catch(error){
+        console.log(error)
+    }
+})
+
+
+// router.get('/id', async (req, res) => {
+//     try {
+//         const userIds = req.query.id;
+
+//         // Attempt to parse the userIds as an array
+//         let userIdsArray;
+//         try {
+//             userIdsArray = JSON.parse(userIds);
+//         } catch (jsonError) {
+//             console.error('Error parsing JSON:', jsonError);
+//             res.status(400).json({ error: 'Invalid JSON format in user IDs' });
+//             return;
+//         }
+
+//         const data = await User.find({ _id: { $in: userIdsArray } });
+//         res.json({ data }).status(200);
+//     } catch (error) {
+//         console.error('Server error:', error);
+//         res.status(500).json({ error: 'Internal Server Error' });
+//     }
+// });
+
+
+
+
 
 
 module.exports = router;

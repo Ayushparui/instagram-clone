@@ -44,7 +44,6 @@ router.post('/post', async (req, res) => {
 
 router.get('/myposts', async (req, res) => {
     try {
-
         const  userId  = req.query.userId
         const posts = await Posts.find({ userId: userId });
         console.log(posts)
@@ -53,6 +52,28 @@ router.get('/myposts', async (req, res) => {
         console.log(error)
     }
 })
+
+
+
+// Get all my Following Posts from database
+
+router.get('/myfollowingposts', async (req, res) => {
+    try {
+        // Assuming userIds is an array of user IDs
+        const postIds = req.query.postIds;
+        
+        
+
+        // Use $in operator to find posts for multiple user IDs
+        const posts = await Posts.find({ userId: { $in: postIds } });
+
+        
+        res.json({ posts }).status(200);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
 
 
 // router.get('/myimages', async (req, res) => {
